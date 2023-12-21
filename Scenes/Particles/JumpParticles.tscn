@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://l7m8uq20ob00"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0re6"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_acoxj"]
+material = SubResource("StandardMaterial3D_g0re6")
+radius = 0.125
+height = 0.25
+
+[sub_resource type="Curve" id="Curve_po7bd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51087, 0.263736), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="JumpParticles" type="CPUParticles3D"]
+emitting = false
+amount = 50
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+lifetime_randomness = 0.25
+mesh = SubResource("SphereMesh_acoxj")
+emission_shape = 1
+emission_sphere_radius = 0.5
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_po7bd")
